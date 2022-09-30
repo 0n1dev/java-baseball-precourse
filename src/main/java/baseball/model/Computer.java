@@ -6,15 +6,16 @@ import java.util.List;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class Computer {
+public class Computer extends Player {
 
-	private final BaseballNumbers numbers;
-
-	public Computer() {
-		this.numbers = new BaseballNumbers(this.generateRandomNumbers());
+	private Computer(List<Integer> numbers) {
+		 super(numbers);
 	}
 
-	private List<Integer> generateRandomNumbers() {
-		return Randoms.pickUniqueNumbersInRange(MIN_BALL_NUMBER, MAX_BALL_NUMBER, MAX_BALL_COUNT);
+	public static Computer create() {
+		final List<Integer> numbers =
+			Randoms.pickUniqueNumbersInRange(MIN_BALL_NUMBER, MAX_BALL_NUMBER, MAX_BALL_COUNT);
+
+		return new Computer(numbers);
 	}
 }
