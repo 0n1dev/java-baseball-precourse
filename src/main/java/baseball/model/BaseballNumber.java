@@ -1,11 +1,11 @@
 package baseball.model;
 
+import static baseball.constants.BaseballConstants.*;
+
 import java.util.Objects;
 
 public class BaseballNumber {
 
-    private static final int MIN_NUMBER = 1;
-    private static final int MAX_NUMBER = 9;
     private final int number;
 
     public BaseballNumber(int number) {
@@ -14,7 +14,7 @@ public class BaseballNumber {
     }
 
     private void validate(final int number) {
-        if (number < MIN_NUMBER || number > MAX_NUMBER) {
+        if (number < MIN_BALL_NUMBER || number > MAX_BALL_NUMBER) {
             throw new IllegalArgumentException("숫자는 1에서 9까지 숫자만 입력 가능 합니다.");
         }
     }
