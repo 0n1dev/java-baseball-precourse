@@ -1,5 +1,7 @@
 package baseball.game;
 
+import static baseball.constants.BaseballConstants.MAX_BALL_COUNT;
+
 import baseball.model.BaseballNumber;
 import baseball.model.Result;
 import java.util.List;
@@ -11,15 +13,15 @@ public class BaseballCompare {
 
         Result result = Result.nothing();
         for (int i = 0; i < inputPlayerNumbers.size(); i++) {
-            result.add(this.compare(inputPlayerNumbers.get(i), resultPlayerNumbers.get(i), resultPlayerNumbers));
+            result = result.add(this.compare(inputPlayerNumbers.get(i), resultPlayerNumbers.get(i), resultPlayerNumbers));
         }
 
         return result;
     }
 
     private void validate(List<BaseballNumber> inputPlayerNumbers, List<BaseballNumber> resultPlayerNumbers) {
-        if (inputPlayerNumbers.size() != resultPlayerNumbers.size()) {
-            throw new IllegalArgumentException("3자리 숫자만 입력이 가능합니다.");
+        if (inputPlayerNumbers.size() > resultPlayerNumbers.size()) {
+            throw new IllegalArgumentException(String.format("%s자리 숫자만 입력이 가능합니다.", MAX_BALL_COUNT));
         }
     }
 
