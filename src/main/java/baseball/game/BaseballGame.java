@@ -4,7 +4,8 @@ import baseball.model.Computer;
 import baseball.model.Player;
 import baseball.model.Result;
 import baseball.model.User;
-import camp.nextstep.edu.missionutils.Console;
+import baseball.io.Input;
+import baseball.io.Output;
 
 public class BaseballGame {
 
@@ -28,15 +29,15 @@ public class BaseballGame {
     }
 
     private void userInput() {
-        System.out.print("숫자를 입력해주세요 : ");
-        this.user = User.of(Console.readLine());
+        Output.print("숫자를 입력해주세요 : ");
+        this.user = User.of(Input.readLine());
     }
 
     private boolean compare(final Player inputPlayer, final Player resultPlayer) {
         Result result = this.baseballCompare.compare(inputPlayer.getBaseballNumbers().getNumbers(),
                 resultPlayer.getBaseballNumbers().getNumbers());
 
-        System.out.println(result.getResult());
+        Output.println(result.getResult());
         return !result.isFinish();
     }
 }

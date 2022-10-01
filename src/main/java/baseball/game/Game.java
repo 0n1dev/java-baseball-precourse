@@ -1,6 +1,7 @@
 package baseball.game;
 
-import camp.nextstep.edu.missionutils.Console;
+import baseball.io.Input;
+import baseball.io.Output;
 
 public class Game {
 
@@ -17,7 +18,7 @@ public class Game {
             this.playing = this.playable();
         }
 
-        System.out.println("게임 종료");
+        Output.println("게임 종료");
     }
 
     private boolean playable() {
@@ -34,8 +35,8 @@ public class Game {
     }
 
     private String userInput() {
-        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-        String input = Console.readLine();
+        Output.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+        String input = Input.readLine();
 
         return input;
     }
