@@ -1,12 +1,13 @@
 package baseball.model;
 
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
 public class BaseballNumbers {
 
-    private final Set<BaseballNumber> numbers= new LinkedHashSet<>();
+    private final List<BaseballNumber> numbers= new ArrayList<>();
 
     public BaseballNumbers(List<Integer> numbers) {
         validateSize(numbers);
@@ -28,5 +29,9 @@ public class BaseballNumbers {
         if (numbers.contains(baseballNumber)) {
             throw new IllegalArgumentException("중복 된 숫자는 들어올 수 없습니다.");
         }
+    }
+
+    public List<BaseballNumber> getNumbers() {
+        return numbers;
     }
 }
