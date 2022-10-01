@@ -1,9 +1,9 @@
 package baseball.model;
 
+import static baseball.constants.BaseballConstants.MAX_BALL_COUNT;
+
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 
 public class BaseballNumbers {
 
@@ -20,8 +20,8 @@ public class BaseballNumbers {
     }
 
     private void validateSize(final List<Integer> numbers) {
-        if (numbers.size() != 3) {
-            throw new IllegalArgumentException("야구 게임 숫자 리스트는 3자리 숫자 입니다.");
+        if (numbers.size() > MAX_BALL_COUNT) {
+            throw new IllegalArgumentException(String.format("야구 게임 숫자는 %s자리를 초과 할 수 없습니다.", MAX_BALL_COUNT));
         }
     }
 
